@@ -27,7 +27,7 @@ import struct
 
 UDP_REMOTE_IP = "192.168.2.1" # Use this if the drone is connected via WiFi
 #UDP_REMOTE_IP = "192.168.42.2" # Use this if the drone is connected directly via USB
-UDP_REMOTE_PORT = 9003
+UDP_REMOTE_PORT = 9005
 UDP_LOCAL_PORT = 12346
 
 # Sending this packet kicks off the video feed.
@@ -54,7 +54,7 @@ playback_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 def bytes_to_hex(byte_array):
     return " ".join(["0x{:02x}".format(b) for b in byte_array])
 
-with open("outvid.h264", "wb") as fp:
+with open("outvid.h265", "wb") as fp:
     sock.sendto(handshake_dump, (UDP_REMOTE_IP, UDP_REMOTE_PORT))
     print("sent handshake")
 
